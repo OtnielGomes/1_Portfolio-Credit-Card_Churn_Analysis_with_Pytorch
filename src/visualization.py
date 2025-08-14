@@ -1,3 +1,7 @@
+############################################################################################################
+### >>> Module of functions and classes for creating graphs and visualizing data.                        ###
+############################################################################################################
+
 # Imports:
 # Matplotlib
 import matplotlib.pyplot as plt
@@ -6,6 +10,9 @@ import seaborn as sns
 # Pandas
 import pandas as pd
 
+############################################################################################################
+
+### Graphics Data Class ###
 class GraphicsData:
 
     # Init Attributes

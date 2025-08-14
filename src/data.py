@@ -1,5 +1,18 @@
+############################################################################################################
+### >>> Module of functions and classes for loading and saving data.                                     ###
+############################################################################################################
+
+# Imports:
+# PySpark.SQL
 from pyspark.sql import functions as F
-### DataSpark ###
+# Pyspark.Api Pandas
+from pyspark import pandas as ps
+# Pandas
+import pandas as pd
+
+############################################################################################################
+
+### DataSpark Class###
 class DataSpark:
     def __init__(
         self, 
@@ -93,76 +106,44 @@ class DataSpark:
             print(f'[ERROR] File not found at: {self.file_location}.')
         except Exception as e:
             print(f"[ERROR] Error loading file '{self.file_location}': {e}.")
+    
+    ### Load Data Pandas Function ###
+    def load_data_pandas(
+        self,
+        file_type: str = 'parquet',
+    )-> pd.DataFrame:
+        """
+        Loads a dataset from a specified file location using Spark, converts it to a Pandas DataFrame, 
+        and stores it in the class instance.
 
+        Args:
+            file_type (str, optional): Type of the file to load. Supported values are:
+                - "parquet" (default)
+                - "csv"
 
-### Find Outliers ###
-def find_outliers(
-    spark,
-    df_num
-):
-    """
-    Calculates and displays the percentage of outliers in each column of a PySpark DataFrame.
+        Returns:
+            pd.DataFrame: The loaded dataset as a Pandas DataFrame.
 
-    This function identifies outliers using the IQR method (Q3 - Q1).
-    It displays the percentage of outliers per column.
+        Raises:
+            ValueError: If the specified file type is not supported.
+            Exception: If there is an error while loading or converting the dataset.
+        """
+        try:
 
-    Parameters:
-    -----------
-    df_num : pyspark.sql.DataFrame
-        PySpark DataFrame with numeric columns.
+            if file_type == 'parquet':
+                    df_spark = self.spark.read.parquet(self.file_location)
 
-    Returns:
-    --------
-    None
-    """
-    try:
-        
-        # List to save data
-        out_col, num_outliers = [], []
+            elif file_type == 'csv':
+                    df_spark = self.spark.read.csv(self.file_location, header=True, inferSchema=True)
 
-        # Total size of the dataframe
-        size_df = df_num.count()
-        if size_df == 0:
-            raise ValueError('The DataFrame has no rows.')
-        
-        for column in df_num.columns:
-            try:
-                # Calculation of quartiles (may fail if not numeric)
-                quantiles = df_num.approxQuantile(column, [0.25, 0.75], 0)
-                if not quantiles or len(quantiles) < 2:
-                    print(f'[Warning] Could not calculate quantiles for column: {column}.')
-                    continue
-                
-                Q1, Q3 = quantiles # Lower quartile and Upper quartile
-                IQR = Q3 - Q1 # Difference between the third quartile and the first quartile
-                lower_bound = Q1 - 1.5 * IQR
-                upper_bound = Q3 + 1.5 * IQR
+            else:
+                    raise ValueError(f'Unsupported file type {file_type}. Use csv or parquet.')
 
-                # Filter nulls and create temporary column for outliers
-                df_filtered = df_num.filter(F.col(column).isNotNull())
-                df_filtered = df_filtered.withColumn(
-                    f'{column}_out',
-                    F.when((F.col(column) < lower_bound) | (F.col(column) > upper_bound), True).otherwise(False)
-                )
+            print(f'✅ File loaded successfully from: {self.file_location}')
 
-                # Count outliers
-                n_outliers = df_filtered.filter(F.col(f'{column}_out') == True).count()
-                percentage_out = round((n_outliers / size_df) * 100, 2)
+            self.dataframe = df_spark.toPandas()
 
-                # # Stores the data
-                out_col.append(column)
-                num_outliers.append(percentage_out)
-            
-            except Exception as inner_e:
-                print(f"[Warning] Failed to process column: '{column}': {inner_e}.")
+            return self.dataframe
 
-        # Show Results
-        if out_col:
-            print('\n✅ Percentage of Outliers by Column:')
-            percentage_out_data = spark.createDataFrame([tuple(num_outliers)], out_col)
-            percentage_out_data.display()
-        else:
-            print('⚠️ No outliers could be computed.')
-
-    except Exception as e:
-        print(f'[Error] Failed to compute outliers: {e}.')
+        except Exception as e:
+            print(f'[ERROR] Error loading file {self.file_location}: {str(e)}.')

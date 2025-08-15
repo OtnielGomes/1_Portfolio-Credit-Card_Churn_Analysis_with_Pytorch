@@ -10,6 +10,7 @@ from sklearn.pipeline import Pipeline
 
 ############################################################################################################
 
+### Preprocessing Data Class ###
 class PreprocessingData:
 
     ### Inicialize atributes ###

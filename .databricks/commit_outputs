@@ -13,5 +13,5 @@
 
 # Uncomment the following pattern to include output for all notebooks
 # **
-# ✅ Include EDA notebook outputs
-/notebooks/0_EDA
+# ✅ Include EDA notebook 
+/notebooks/0_EDA.ipynb

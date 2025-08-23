@@ -1,26 +1,30 @@
-############################################################################################################
-### >>> Module of functions and classes preprocessing data train and data test.                          ###
-############################################################################################################
+# =========================================================================== #
+# >>> Module of functions and classes preprocessing data train and data test. #                                        
+# =========================================================================== #
 
-# Imports:
+# ======================================================== #
+# Imports:                                                 #
+# ======================================================== #
 # Scikit-Learn Preprocessing
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder, StandardScaler, RobustScaler, MinMaxScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
-############################################################################################################
-
-### Preprocessing Data Class ###
+# ======================================================== #
+# Preprocessing Data - Class                               #
+# ======================================================== #
 class PreprocessingData:
 
-    ### Inicialize atributes ###
+    #Inicialize  Class
     def __init__(
         self,
         name: str = 'PreprocessingData',
     ):
         self.name = name
-    
-    ### ML Classic Preprocessing Function/Pipeline ###
+
+    # ======================================================== #
+    # ML Classic Preprocessing - Function/Pipeline             #
+    # ======================================================== #
     def MLClassicPreprocessing(
         self,
     ):
@@ -82,8 +86,10 @@ class PreprocessingData:
         
         except Exception as e:
             print(f'[ERROR] Failed to create pipeline with preprocessed data: {str(e)}.')
-    
-    ### Pytorch Neural Networks Preprocessing Function/Pipeline ###
+
+    # ======================================================== #
+    # Torch Neural Networks Preprocessing - Function/Pipeline  #
+    # ======================================================== #
     def NeuralNetWorkPreprocessing(
         self,
     ):

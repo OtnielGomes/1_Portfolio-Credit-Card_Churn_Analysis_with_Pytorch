@@ -1,8 +1,10 @@
-############################################################################################################
-### >>> Module of functions and classes preprocessing data train and data test.                          ###
-############################################################################################################
+# =========================================================================== #
+# >>> Module of functions and classes preprocessing data train and data test. #                                        
+# =========================================================================== #
 
-# Imports:
+# ======================================================== #
+# Imports:                                                 #
+# ======================================================== #
 # Scikit-Learn Preprocessing / Metrics
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import StratifiedKFold, cross_val_score
@@ -13,19 +15,21 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 
-############################################################################################################
-
-### Scikit - Learn Class ###
+# ======================================================== #
+# Scikit-Learn - Class                                     #
+# ======================================================== #
 class SKLearn:
 
-    # Inicialize Atributes
+    # Inicialize Class
     def __int__(
         self,
         name: str = 'SKLearn'
     ):
         self.name = name
 
-    ### SK Models Function ###
+    # ======================================================== #
+    # Scikit-Learn Models - Function/Pipeline                  #
+    # ======================================================== #
     def SKModels(
         self,
     ):
@@ -117,7 +121,10 @@ class SKLearn:
         except Exception as e:
             print(f'[ERROR] Failed to create models: {str(e)}')
 
-    
+
+    # ======================================================== #
+    # Cross Validation ML - Function                           #
+    # ======================================================== #
     def CrossValidationML(
         self,
         models,

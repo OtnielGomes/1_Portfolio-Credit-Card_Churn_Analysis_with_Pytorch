@@ -1,18 +1,18 @@
-############################################################################################################
-### >>> Module of functions and classes for loading and saving data.                                     ###
-############################################################################################################
+# ======================================================================== #
+# >>> Module of functions and classes for loading and saving data.         #                                        
+# ======================================================================== #
 
-# Imports:
+# ======================================================== #
+# Imports:                                                 #
+# ======================================================== #
 # PySpark.SQL
 from pyspark.sql import functions as F
-# Pyspark.Api Pandas
-from pyspark import pandas as ps
 # Pandas
 import pandas as pd
 
-############################################################################################################
-
-### DataSpark Class###
+# ======================================================== #
+# DataSpark - Class                                        #
+# ======================================================== #
 class DataSpark:
     def __init__(
         self, 
@@ -39,6 +39,9 @@ class DataSpark:
         except Exception as e:
             print(f'[Error] Failed to initialize DataSpark: {e}.')
 
+    # ======================================================== #
+    # Save Data - Function                                     #
+    # ======================================================== #
     def save_data(
         self,
         file_type: str = 'parquet',
@@ -70,6 +73,9 @@ class DataSpark:
         except Exception as e:
             print(f'[ERROR] Failed to save data: {e}.')
 
+    # ======================================================== #
+    # Load Data - Function                                     #
+    # ======================================================== #
     def load_data(
         self,
         file_type: str = 'csv',
@@ -107,7 +113,9 @@ class DataSpark:
         except Exception as e:
             print(f"[ERROR] Error loading file '{self.file_location}': {e}.")
     
-    ### Load Data Pandas Function ###
+    # ======================================================== #
+    # Load Data Pandas - Function                              #
+    # ======================================================== #
     def load_data_pandas(
         self,
         file_type: str = 'parquet',

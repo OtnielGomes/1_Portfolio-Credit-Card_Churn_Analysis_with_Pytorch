@@ -1,21 +1,28 @@
-############################################################################################################
-### >>> Module of functions and classes for creating graphs and visualizing data.                        ###
-############################################################################################################
+# ============================================================================= #
+# >>> Module of functions and classes for creating graphs and visualizing data. #                                        
+# ============================================================================= #
 
-# Imports:
+# ======================================================== #
+# Imports:                                                 #
+# ======================================================== #
+# Graphics:
 # Matplotlib
 import matplotlib.pyplot as plt
 # Seaborn
 import seaborn as sns
+# Data manipulation and visualization:
 # Pandas
 import pandas as pd
+# Metrics:
+# Torch Metrics
+from torchmetrics.classification import BinaryAUROC, BinaryROC, BinaryPrecisionRecallCurve, BinaryAveragePrecision
 
-############################################################################################################
-
-### Graphics Data Class ###
+# ======================================================== #
+# Graphics Data - Class                                    #
+# ======================================================== #
 class GraphicsData:
 
-    # Init Attributes
+    # Inicialize Class
     def __init__(
         self, 
         data: pd.DataFrame,
@@ -31,8 +38,9 @@ class GraphicsData:
         except Exception  as e:
             print(f'[Error] Failed to load Dataframe : {str(e)}')
     
-
-    ### _initializer_subplot_grid Function ###
+    # ======================================================== #
+    # Initializer Subplot Grid - Function                      #
+    # ======================================================== #
     def _initializer_subplot_grid(
         self, 
         num_columns, 
@@ -65,7 +73,9 @@ class GraphicsData:
 
         return fig, ax
 
-    ###_finalize_subplot_layout Function ###
+    # ======================================================== #
+    # Finalize Subplot Layout - Function                       #
+    # ======================================================== #
     def _finalize_subplot_layout(
         self,
         fig,
@@ -96,8 +106,10 @@ class GraphicsData:
         plt.suptitle(title, fontsize = fontsize, fontweight = 'bold')
         plt.tight_layout(rect = [0, 0, 1, 0.97])
         plt.show()
-    
-    ### _format_single_ax Function ###
+
+    # ======================================================== #
+    # Format Single AX - Function                              #
+    # ======================================================== #
     def _format_single_ax(
         self, 
         ax,
@@ -126,7 +138,9 @@ class GraphicsData:
         ax.grid(axis = 'y', which = 'major', linestyle = '--', linewidth = linewidth)
         ax.grid(axis = 'x', which = 'major', linestyle = '--', linewidth = linewidth)
 
-    ### Plot Variable Type Function ###
+    # ======================================================== #
+    # Plot Variable Type - Function                            #
+    # ======================================================== #
     def plot_variable_type(
         self,
         count_col: str,
@@ -178,7 +192,9 @@ class GraphicsData:
         except Exception  as e:
             print(f'[Error] Failed to generate variable distribution plot: {str(e)}.')
 
-    ### Numerical histograms Function ###
+    # ======================================================== #
+    # Numerical Histograms - Function                          #
+    # ======================================================== #
     def numerical_histograms(
         self, 
         num_columns: int = 3,
@@ -234,7 +250,9 @@ class GraphicsData:
         except Exception as e:
             print(f'[Error] Failed to generate numeric histograms: {str(e)}.')
 
-    ### Numerical Boxplots Function ###
+    # ======================================================== #
+    # Numerical Boxplots - Function                            #
+    # ======================================================== #
     def numerical_boxplots(
         self, 
         hue: str = None, 
@@ -310,7 +328,9 @@ class GraphicsData:
         except Exception as e: 
             print(f'[ERROR] Failed to generate numerical boxplots: {str(e)}.')
 
-    ### Categorical Countplots Function ###
+    # ======================================================== #
+    # Categorical Countplots - Function                        #
+    # ======================================================== #
     def categorical_countplots(
         self,
         hue: str = None,
@@ -392,7 +412,9 @@ class GraphicsData:
         except Exception as e:
             print(f'[ERROR] Failed to generate categorical countplots: {str(e)}')
 
-    ### Numerical Barplots Function ###
+    # ======================================================== #
+    # Numerical Barplots - Function                            #
+    # ======================================================== #
     def numerical_barplots(
         self,
         hue: str = None,
@@ -467,7 +489,9 @@ class GraphicsData:
         except Exception as e:
             print(f'[ERROR] Failed to generate numerical barplots: {str(e)}.')
 
-    ### Barplot Target Function ###
+    # ======================================================== #
+    # Barplot Target - Function                                #
+    # ======================================================== #
     def barplot_target(
         self,
         target_col: str,
@@ -539,7 +563,9 @@ class GraphicsData:
         except Exception as e:
             print(f'[Error] Failed to generate Barplot target: {str(e)}.')
 
-    ### Correlation Heatmap Function ###
+    # ======================================================== #
+    # Correlation Heatmap - Function                           #
+    # ======================================================== #
     def correlation_heatmap(
         self,
         title: str = None,
@@ -581,7 +607,9 @@ class GraphicsData:
         except Exception as e:
             print(f'[Error] Failed to generate correlation heatmap: {str(e)}.')
 
-    ### Scatterplots vs Reference Function
+    # ======================================================== #
+    # Scatterplots vs Reference - Function                     #
+    # ======================================================== #
     def scatterplots_vs_reference(
         self, 
         x_reference: str,
@@ -652,7 +680,9 @@ class GraphicsData:
         except Exception as e:
             print(f'[ERROR] Failed to generate scatterplots vs reference: {str(e)}.')  
 
-    # Categorical Bar Percentages Function
+    # ======================================================== #
+    # Categorical Bar Percentages - Function                   #
+    # ======================================================== #
     def categorical_bar_percentages(
         self,
         hue: str ,
@@ -741,3 +771,213 @@ class GraphicsData:
             self._finalize_subplot_layout(fig, ax, i, title = title)
         except Exception as e:
             print(f'[ERROR] Failed to generate percentage barplots: {str(e)}.')
+
+    # ======================================================== #
+    # Models Performance Barplots - Function                   #
+    # ======================================================== #
+    def models_performance_barplots(
+        self,
+        models_col: str = None,
+        palette = None,
+        title: str = 'Models Performance Comparison',
+        num_columns: int = 1,
+        figsize_per_row: int = 9
+    ):
+        """
+        Generates bar plots to compare the performance of multiple models across different metrics.
+
+        Args:
+            models_col (str, optional): Column name containing model identifiers.
+            palette (list or seaborn color palette, optional): Color palette for the bar plots.
+                Defaults to a 'viridis' palette if None.
+            title (str, optional): Main title for the figure. Defaults to 'Models Performance Comparison'.
+            num_columns (int, optional): Number of subplot columns. Defaults to 1.
+            figsize_per_row (int, optional): Height of each subplot row in inches. Defaults to 9.
+
+        Raises:
+            Exception: If there is an error generating the bar plots.
+
+        Notes:
+            - The method expects `self.data` to contain one column for model names
+            and one or more columns with numeric performance metrics.
+            - Each subplot will represent a different metric.
+        """
+        try:
+
+            # Define palette
+            if palette is None:
+                palette = sns.color_palette('viridis', len(self.data[models_col].unique()))
+            
+            # Define AX and Fig
+            fig, ax = self._initializer_subplot_grid(num_columns, figsize_per_row)
+            # Ax Flatten
+            ax = ax.flatten()
+
+            # Iterate over metrics (excluding 'Model')
+            for i, column in enumerate(self.data.drop(columns = models_col).columns):
+
+                barplot = sns.barplot(
+                    data = self.data,
+                    x = models_col,
+                    y = column,
+                    hue = models_col,
+                    dodge = False,
+                    edgecolor = 'white',
+                    saturation = 1,
+                    palette = palette,
+                    ax = ax[i]
+                )
+
+                # Formatting axis
+                self._format_single_ax(ax[i], title = column, fontsize = 25)
+                ax[i].tick_params(axis = 'x', labelsize = 20)
+                ax[i].set_yticklabels([])
+                sns.set(style = 'whitegrid')
+
+                # Add values on bars
+                for v in barplot.patches:
+                    barplot.annotate(
+                        f'{v.get_height():.4f}',
+                        (v.get_x() + v.get_width() / 2., v.get_height() / 1.06),
+                        ha = 'center',
+                        va = 'top',
+                        xytext = (0, 0),
+                        textcoords = 'offset points',
+                        fontsize = 20,
+                        fontweight = 'bold',
+                        color = 'white'
+                    )
+
+            # Finalize plot
+            self._finalize_subplot_layout(fig, ax, i, title = title)     
+        
+        except Exception as e:
+                print(f'[ERROR] Failed to generate model performance barplots: {str(e)}.')
+
+    # ======================================================== #
+    # Plot KDE Predictions - Function                          #
+    # ======================================================== #                
+    def plot_kde_predictions(
+        self,
+        palette: list = ['#12e193', '#feb308'],
+        predictions: str = None,
+        labels: str = None,
+        title: str = 'Prediction Probabilities'
+    ):
+        """
+        Plots the probability distributions of predictions using Kernel Density Estimation (KDE).
+
+        Args:
+            palette (list, optional): List of colors for each class. Defaults to ['#12e193', '#feb308'].
+            predictions (str, optional): Column name containing the predicted probabilities.
+            labels (str, optional): Column name containing the true labels.
+            title (str, optional): Title for the plot. Defaults to 'Prediction Probabilities'.
+
+        Raises:
+            Exception: If there is an error generating the KDE plot.
+
+        Notes:
+            - The method expects `self.data` to contain the prediction probabilities and true labels.
+            - KDE plots are useful for visualizing class separation in probabilistic predictions.
+        """
+        try:
+
+            # Creating figures and setting font size
+            plt.rc('font', size = 10)
+            fig, ax = plt.subplots(figsize = (12, 4))
+
+            sns.kdeplot(
+                data = self.data,
+                x = predictions,
+                hue = labels,
+                fill = True,
+                alpha = 0.4,
+                bw_adjust = 1,
+                palette = palette,
+                linewidth = 1,
+                ax = ax
+            )
+
+            # Axis and title adjustments
+            ax.set_title(title, fontsize = 14)
+            ax.set_xlabel(None)
+            ax.set_ylabel(None)
+            ax.set_yticklabels([])
+
+            ## Grade and style
+            ax.grid(axis = 'y', linestyle = '--', linewidth = 0.3)
+            ax.grid(axis = 'x', linestyle = '--', linewidth = 0.3)
+            sns.set(style = 'whitegrid')
+            sns.despine(ax = ax, top = True, right = True, left = True, bottom = False)
+
+            # Show Graphics
+            plt.tight_layout()
+            plt.show()
+        
+        except Exception as e:
+            print(f'[ERROR] Failed to generate prediction probability graph {str(e)}.')
+
+    # ======================================================== #
+    # Plot ROC and Precision Curves Function                   #
+    # ======================================================== #   
+    def plot_roc_pr_curves(
+        preds, 
+        labels
+    ):
+        """
+        Plots the Receiver Operating Characteristic (ROC) curve and the Precision-Recall (PR) curve
+        for a binary classification model, along with their respective AUC metrics.
+
+        Args:
+            preds (Tensor or array-like): Predicted probabilities for the positive class.
+            labels (Tensor or array-like): True binary labels (0 or 1).
+
+        Raises:
+            Exception: If there is an error generating or plotting the curves.
+
+        Notes:
+            - Computes and plots:
+                * ROC curve with AUROC (Area Under ROC Curve).
+                * Precision-Recall curve with AUPRC (Area Under Precision-Recall Curve).
+            - Uses TorchMetrics for metric computation.
+            - Useful for evaluating model performance, especially in imbalanced datasets.
+        """
+        try:
+            # Metrics
+
+            # ROC
+            fpr, tpr, _ = BinaryROC()(preds, labels)
+            auroc_value = BinaryAUROC()(preds, labels).item()
+
+            # Precision-Recall
+            precision_vals, recall_vals, _ = BinaryPrecisionRecallCurve()(preds, labels)
+            auprc_value = BinaryAveragePrecision()(preds, labels).item()
+
+            # Ax and Fig
+            fig, axes = plt.subplots(1, 2, figsize = (12, 5))
+
+            # ROC Curve
+            axes[0].plot(fpr, tpr, color = '#1f77b4', lw = 2, label = f'ROC (AUROC = {auroc_value:.3f})')
+            axes[0].plot([0, 1], [0, 1], color = 'gray', linestyle = '--', label = 'Random (AUROC = 0.5)')
+            axes[0].set_xlabel('False Positive Rate', fontsize = 12)
+            axes[0].set_ylabel('True Positive Rate', fontsize = 12)
+            axes[0].set_title('ROC Curve', fontsize = 14, fontweight = 'bold')
+            axes[0].legend(loc = 'lower right', fontsize = 10)
+
+            # PR Curve
+            axes[1].plot(recall_vals, precision_vals, color = 'darkorange', lw = 2, label = f'PR Curve (AUPRC = {auprc_value:.3f})')
+            axes[1].set_xlabel('Recall', fontsize = 12)
+            axes[1].set_ylabel('Precision', fontsize = 12)
+            axes[1].set_title('Precision-Recall Curve', fontsize = 14, fontweight = 'bold')
+            axes[1].legend(loc='upper right', fontsize = 10)
+
+            # Grid
+            for ax in axes:
+                ax.grid(True, linestyle = '--', linewidth = 0.5)
+
+            # Show Graphics
+            plt.tight_layout()
+            plt.show()
+
+        except Exception as e:
+            print(f'[ERROR] Failed to generate ROC and PR curves: {str(e)}.')

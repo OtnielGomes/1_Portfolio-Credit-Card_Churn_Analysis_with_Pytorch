@@ -20,8 +20,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="images/logo.jpg">
-    <img src="images/logo.jpg" alt="Logo" width="700" height="400">
+    <img src="images/logo.jpg" alt="Logo" width="700" height="500">
   </a>
 
 <h3 align="center"> Churn Analysis/Prediction </h3>
@@ -308,44 +307,32 @@ The bank’s manager has observed a rising number of customers abandoning credit
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 2-Data Understanding
+### 2 - Data Understanding
 
-## The dataset
+---
 
-**We have records from 12-2006 to 12-2015 with information about the payment history of this institution's customers**
+* This dataset consists of 10,000 customers mentioning their age, salary, marital_status, credit card limit, credit card category, etc.
 
-**Data file**: - loan.csv
+---
 
-**Data dictionary**: - LoanStats tab in LCDataDictionary.xlsx
+- **Data file**: - BankChurners.csv
 
-**Target dependent variable**: - 'loan_status'
+---
 
-**Source** : https://www.kaggle.com/datasets/ranadeep/credit-risk-dataset/data?select=loan
+- **Target dependent variable**: - 'Attrition_Flag', categorical column with binary classification, i.e. 'Existing Customer'(No-churner) or 'Attrited Customer'(Churner).
 
-## Adjusting the dataset for the project
+---
 
-* Before starting the analyzes and training the models, the data set will be adjusted to the proposal that will be the objective of this project. The objective is to create one or more models capable of predicting whether the borrower will pay all the loan installments or become a defaulter, failing to pay the loan.
+- **The dataset colleted from kaggle**: https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers?sort=votes&select=BankChurners.csv
 
-* From now on, the dataset will only be separated with records that correspond to loans that have already been closed. The loan_status variable allows you to define the payment statuses that characterize these loans. 
+---
+- **The dataset origin from this site**: https://leaps.analyttica.com/home
 
-* They are: 
-
-* **Fully Paid**
-
-* **Charged Off**
-
-##### Note:
-
-The payment statuses below will not be used because they do not comply with the institution's credit policy. Since this is a credit risk analysis model, it is important to build it now so that it adapts to the loan requests that will be made by the institution in the future.
-
-* Does not meet the credit policy. Status:Fully Paid
-
-* Does not meet the credit policy. Status:Charged Off
+---
 
 <br />
 <div align="left">
-  <a href="https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch">
-    <img src="images/status_payments_initial.png" alt="Status Payments Initial" width="500" height="400">
+    <img src="images/type_variables.png" alt="Status Payments Initial" width="700" height="500">
   </a>
 </div>
 <br />

@@ -122,7 +122,7 @@ The project will follow the CRISP-DM (*Cross-Industry Standard Process for Data 
 * [![Ploty Lib][Plotly]][Plotly-url]
 * [![Torch][PyTorch]][PyTorch-url]
 * [![Sklearn][scikit-learn]][scikit-learn-url]
-* [![Ray][Ray Tune]][Ray Tune-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1543,9 +1543,6 @@ Project Link: [https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_w
 
 [Pandas]: https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white
 [Pandas-url]: https://pandas.pydata.org/
-
-[Ray Tune]: https://img.shields.io/badge/Ray-028CF0.svg?style=for-the-badge&logo=Ray&logoColor=white
-[Ray Tune-url]: https://docs.ray.io/en/latest/tune/index.html
 
 [Matplotlib]: https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
 [Matplotlib-url]: https://matplotlib.org/

@@ -113,15 +113,17 @@ The project will follow the CRISP-DM (*Cross-Industry Standard Process for Data 
 <br/>
 
 ## Built With
-* [![Databricks][Azure Databricks]][Azure Databricks-url]
-* [![Language Python][Python]][Python-url]
-* [![Apache][Apache Spark]][Apache Spark-url]
-* [![PD][Pandas]][Pandas-url]
-* [![NP][NumPy]][NumPy-url]
-* [![Matplot][Matplotlib]][Matplotlib-url]
-* [![Ploty Lib][Plotly]][Plotly-url]
-* [![Torch][PyTorch]][PyTorch-url]
-* [![Sklearn][scikit-learn]][scikit-learn-url]
+<br/>
+
+- [![Databricks][Databricks Free]][Databricks Free-url]
+- [![Language Python][Python]][Python-url]
+- [![Apache][Apache Spark]][Apache Spark-url]
+- [![PD][Pandas]][Pandas-url]
+- [![NP][NumPy]][NumPy-url]
+- [![Matplot][Matplotlib]][Matplotlib-url]
+- [![Scipy][Scipy]][Scipy-url]
+- [![Torch][PyTorch]][PyTorch-url]
+- [![Sklearn][scikit-learn]][scikit-learn-url]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,145 +133,178 @@ The project will follow the CRISP-DM (*Cross-Industry Standard Process for Data 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-0-**Clone the repo**
-   ```sh
-   git clone https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch
-   ```
+<br/>
+
+**Clone the repository**
+```sh
+git clone https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch
+```
+<br/>
 
 ### Pre-requisites
 
-* Data Bricks - This project was developed in the Databricks environment, so the entire project structure is compatible with AzureDatabricks and Databricks Community. Below I will leave the link to create an account in the Databricks Community where it is free and at no cost and you will be able to run a copy of this project perfectly.
-Link for create acount :
+> 📌 **This entire project was built using Databricks Free Edition**.
 
-* [![Databricks CM][Azure Databricks CM]][Azure Databricks CM-url]
+---
 
-* ##### Now that your account is created, you will need to create a cluster in DataBricks. Below is the step-by-step guide to creating the cluster.
+### 🧠 What is Databricks Free Edition?
 
-* ###### Step-by-Step Guide to Creating a Cluster in Databricks
+**Databricks Free Edition** is the free version of the Databricks platform, designed for **students, educators, developers, and data enthusiasts**.  
+It replaces the former *Community Edition* and offers a **serverless** environment with limited resources — ideal for **prototyping, learning, and collaboration**.
 
-   1-**Access Databricks**:
-    - Log in to your Databricks account.
+With it, you can:
+- Create interactive notebooks (Python, SQL, Scala, R)
+- Use **Databricks Assistant** for code suggestions and corrections
+- Train machine learning models and build data pipelines
+- Collaborate in real time with other users
 
-   2-**Navigate to the Clusters Section**:
-    - In the side menu, click on **Compute** (or **Clusters**).
+---
 
-   3-**Create a New Cluster**:
-    - Click on the **Create Cluster** button.
+### 📝 How to Sign Up
 
-   4-**Configure the Cluster**:
-    - **Cluster Name**: Give your cluster a name.
-    - **Cluster Mode**: Choose the cluster mode (Standard, High Concurrency, etc.).
-    - **Databricks Runtime Version**: Select the version of Databricks Runtime you want to use.
-    - **Node Type**: Choose the node type (virtual machine) for the workers and the driver. - **Autoscaling**: Enable or disable autoscaling. If enabled, set the minimum and       maximum number of nodes.
-    - **Worker Nodes**: Set the number of worker nodes.
-    - **Driver Node**: Configure the driver node if necessary.
-    - **Version used in this project**: 15.4 LTS (includes Apache Spark 3.5.0, Scala 2.12)
+#### 1. Go to:  
+[Databricks Free Edition – Microsoft Learn](https://learn.microsoft.com/en-us/azure/databricks/getting-started/free-edition)  
+#### 2. Sign in with Google, GitHub, Microsoft, or another supported provider.  
+#### 3. A **free workspace** will be automatically created for you.
 
-   5-**Advanced Settings (Optional)**:
-    - **Libraries**: Add libraries that the cluster should load when starting.
-    - **Spark Configurations**: Add Spark-specific configurations.
-    - **Environment Variables**: Set environment variables if necessary.
+---
 
-   6-**Create the Cluster**:
-    - After configuring all options, click **Create Cluster**.
+### 🧭 First Steps in the Workspace
 
-  * #### Additional Resources
+### 1. **Workspace**
+- Organize your notebooks, scripts, and datasets
+- Create folders and set sharing permissions
 
-    * **Official Documentation**: See the official Databricks documentation for more details and advanced options: [Click here](https://learn.microsoft.com/en-us/azure/databricks/scenarios/quickstart-create-databricks-workspace-vnet-injection).
+### 2. **Notebook**
+- Interactive interface for writing and running code
+- Supports **Python, SQL, R, Scala**
 
+### 3. **Databricks Assistant**
+- AI-powered helper that explains, suggests, and fixes code
+- Works in notebooks and SQL editor
 
-### Installation of librarys
+---
 
-* Install Libraries to the Cluster:
+### 🔧 What You Can Do in the Free Edition
 
-    * After creating the cluster, click on the cluster name to open its settings.
+| Feature                       | Description                                                                |
+|--------------------------------|----------------------------------------------------------------------------|
+| Create notebooks               | For data analysis, visualizations, and machine learning                   |
+| Query data with SQL            | Explore datasets using the SQL editor                                     |
+| Build data pipelines           | Using LakeFlow, Auto Loader, and Delta Live Tables                        |
+| Train AI models                | With PySpark, MLflow, and foundation models                               |
+| Create interactive dashboards  | With natural language-based visualization (Genie)                         |
+| Collaborate in real time       | Share and edit notebooks with your team                                   |
 
-    *  Go to the Libraries tab.
+---
 
-    * Click Install New.
+### ⚠️ Limitations
 
-    * Choose the library source (e.g., PyPI, Maven, CRAN, DBFS, etc.).
+- **Personal use only** (non-commercial)
+- Limited computing resources (no dedicated clusters)
+- Some advanced features unavailable (full Unity Catalog, scheduled jobs)
 
-    * Follow the instructions to install the desired library. For example, to install a library from PyPI, enter the package name and click Install.
+---
 
-* Librares:
-  
-  1-threadpoolctl: **PyPI**
-     ```py
-     threadpoolctl==3.5.0
-     ```
-  2-spark-excel_2.12:0.14.0: **Marven**
-     ```py
-     com.crealytics:spark-excel_2.12:0.14.0
-     ```
-  3-scikit-learn: **PyPI**
-     ```py
-     scikit-learn==1.5.2
-     ```
-  4-category_encoders: **PyPI**
-     ```py
-     category_encoders==2.6.3
-     ```
-  5-torch: **PyPI**
-     ```py
-     torch==2.5.1
-     ```
-  6-torchmetrics: **PyPI**
-     ```py
-     torchmetrics==1.4.2
-     ```
-  7-xgboost: **PyPI**
-     ```py
-     xgboost==2.1.0
-     ```
-  8-ray[tune]: **PyPI**
-     ```py
-     ray[tune]==2.38.0
-     ```
+### 📚 Learning Resources
+
+- [Databricks Academy](https://www.databricks.com/learn/free-edition) — free courses on:
+  - SQL Fundamentals
+  - Data Engineering with Delta Lake
+  - Machine Learning with PySpark
+- [Official Databricks Documentation](https://docs.databricks.com/)
+
+### Installation of Libraries
+
+The installation of the required libraries is performed using the command:
+
+```python
+%pip install '..\requirements.txt'
+```
+
+This command is present in the first notebook of this project.
+
+---
+
+💡 **Note**:  
+- In Jupyter/Databricks notebooks, the `%pip` magic command installs packages directly into the current environment.  
+- If your `requirements.txt` file is located in a subdirectory or at a different path, make sure to update the path accordingly (e.g., `../requirements.txt`).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
-# The Project
 
-# 1-Business Understanding
+<br/>
 
-## Lending Club
+## The Project
 
-LendingClub is a company that specializes in providing online loans, which further reinforces the need for an accurate assessment during the analysis of the approval of requested loans.
+### 1 - Business Understanding  
+---
 
-During a loan application, the company makes only two decisions: grant the loan to the applicant or block the release of the loan. This decision is based on the data present in the registry and the information provided by the potential borrower.
+### General Problem Context  
+#### What is Churn Rate, and What Are the Solutions to This Problem? 
+Many companies struggle with customer churn and often find it challenging to reverse this trend. The metric that measures this scenario is called **churn rate**, which indicates when strategic solutions are needed to address the issue.  
 
-We will only use the records with the following final payment statuses:
+In 2020, Bryce Baer published a guide on churn rate on the [Zendesk website](https://www.zendesk.com.br/blog/customer-churn-rate/?_ga=2.155312252.614584228.1623244699-1365810980.1622555740#) – a company specializing in corporate software development. The guide highlights that businesses implementing strategies to reduce churn can increase their **profitability** by nearly 40%.  
 
-* Fully Paid
-* Charged Off
+---
 
-The other payment statuses have not yet had final payment completion because they have not yet been completed, so there is no possibility of classifying them.
+#### How to Calculate Churn Rate?
+##### Churn Rate Formula:  
+$$\text{Churn Rate} = \frac{\text{Number of customers lost during a period}}{\text{Total number of customers at the start of the period}} \times 100$$  
 
-#### What is the objective of this project?
+---
 
-* A machine learning model will be created that seeks to make predictions that during the loan application will indicate whether the borrower will be a good payer or not.
+#### Impacts of a High Churn Rate
+While reducing churn to zero is practically impossible, acceptable rates (4% to 5%) minimize financial impacts. Some companies operate at higher rates (5% to 7%) without significant revenue loss, depending on industry dynamics. **Key factors to define "acceptable" churn**:  
+- Industry standards (e.g., SaaS vs. retail).  
+- Customer lifetime value (CLV).  
+- Customer acquisition cost (CAC).  
 
-* The main objective is to create analyses that use only the information collected at the time of the loan application. The model focuses on preventing the release of loans to potentially defaulting borrowers, using only the variables available at the time of the request.
+---
 
-* I will seek to generate several insights so that we have information about the institution's objective, which is to reduce unpaid loans and potential losses in relation to recent years.
+#### Reasons for Customer Churn
+1. **Lack of Perceived Value**:  
+   - Occurs when there’s a growing gap between customer expectations and actual delivery. Clear communication about product/service benefits is critical.  
+2. **Poor Customer Experience**:  
+   - Negative interactions (e.g., bad support, complex processes, product failures) drive churn.  
+3. **Competitor Offers**:  
+   - Attractive promotions or pricing from competitors can lure customers away.  
+4. **Changing Customer Needs**:  
+   - Failure to adapt products/services to evolving demands leads to turnover.  
 
-#### To deal with default, we have some possible solutions:
+---
 
-* Do not release loans classified as risky loans that will potentially not be paid.
+## Project Challenge: 
+The bank’s manager has observed a rising number of customers abandoning credit card services. Stakeholders aim to:  
+1. **Analyze historical data** to identify root causes of churn.  
+2. **Develop a machine learning model** to predict customer churn probability.  
+3. **Implement strategic actions** to retain high-risk customers.  
 
-* If released, charge a higher interest rate for these cases.
+---
 
-#### For loans classified as low-risk loans that will potentially be fully paid, we can consider:
+## KPIs for the Churn Prediction Project:  
+1. **Churn Rate**:  
+   - *Definition*: Percentage of customers who discontinue credit card services within a specific period.  
+   - *Goal*: Reduce this metric through targeted retention strategies.  
 
-* In addition to releasing the loans, increase the loan amount in these cases.
+2. **Retention Rate**:  
+   - *Definition*: Percentage of customers retained after a period.  
+   - *Importance*: Directly reflects the success of retention efforts.  
 
-* Reduce the interest rate, aiming to improve the relationship with the target customer and increase the company's profitability with higher-value loans.
+3. **Customer Acquisition Cost (CAC) vs. Retention Cost**:  
+   - *Definition*: Ratio of costs to acquire new customers vs. retaining existing ones.  
+   - *Insight*: Retention is typically **5-7x cheaper** than acquisition.  
 
-* Offer more services to this borrower.
+4. **AUC-ROC (Area Under the Receiver Operating Characteristic Curve)**:  
+   - *Definition*: Measures the model’s ability to distinguish between churners and non-churners.  
+   - *Target*: AUC-ROC > 0.90.  
+
+5. **Recall**:  
+   - *Definition*: Proportion of actual churners correctly identified by the model.  
+   - *Importance*: High recall ensures fewer **false negatives** (missed churners), which is critical because a false negative could result in losing a customer. Retaining existing customers through targeted strategies is significantly cheaper than acquiring new ones.  
+
+---
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1547,8 +1582,8 @@ Project Link: [https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_w
 [Matplotlib]: https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
 [Matplotlib-url]: https://matplotlib.org/
 
-[Plotly]: https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white
-[Plotly-url]: https://plotly.com/graphing-libraries/
+[Scipy]: https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white
+[Scipy-url]: https://scipy.org/
 
 [NumPy]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white
 [NumPy-url]: https://numpy.org/
@@ -1556,5 +1591,5 @@ Project Link: [https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_w
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
 
-[Azure Databricks CM]: https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=Databricks&logoColor=white
-[Azure Databricks CM-url]: https://community.cloud.databricks.com/
+[Databricks Free]: https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=Databricks&logoColor=white
+[Databricks Free-url]: https://www.databricks.com/br/learn/free-edition

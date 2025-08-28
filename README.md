@@ -411,6 +411,38 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 </div>
 <br/>
 
+#### Observations and insights regarding categorical data
+---
+
+- 1 - The majority of clients are women, with a percentage of **52.5%**.
+---
+- 2 - **46.1%** of clients are **married**, while **39.3%** are **single**. There is a small portion of **7.4%** of **divorced** clients and another portion of **7.2%** of clients who do **not fit** into any of the above categories.
+---
+- 3 - The majority of clients have a **Graduate** level of education, with **31%**. This status refers to people who have already graduated and completed a specialization in the area they studied.
+
+  **High School** represents **20.1%**. This status refers to people who have already graduated and completed high school.
+
+  **Unknown** represents **14.7%**. This status refers to people who possibly did not fill out the form or did not fit into any of the above classifications.
+
+  **Uneducated** represents **14.6%**. This status refers to people who have not had access to formal education or have not completed a significant level of study.
+
+  **College** represents **9.9%**. This status refers to higher education.
+
+  Finally, the **Postgraduate** and **Doctorate** statuses have the smallest shares. **Postgraduate** is basically a synonym for **Graduate**, both referring to the same status, while **Doctorate** refers to the highest level of study.
+---
+- 4 - The majority of clients, **34.9%**, have an income below **40k**.
+
+  **17.7%** of clients have an income between **40k and 60k**.
+
+  **14%** have an income between **60k and 80k**.
+
+  **15.3%** have an income between **80k and 120k**.
+
+  **10.9%** did not fill out this information or do not fit into any of the categories above.
+
+  A smaller portion, **7.3%**, has an income above **120k** per year.
+---
+- 5 - **93.1%** of customers have a **Blue** credit card, which is the dominant class. Next comes the **Silver** credit card with **5.6%**, and the **Gold** and **Platinum** cards with a small share of participation that is practically nil.
 ---
 
 ### Bivariate Analysis 
@@ -449,6 +481,29 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 </div>
 <br/>
 
+#### Observations and insights into the of numeric variables with the 'churn_target' variable.
+---
+- 1 - In the variable **total_revolving_bal**, it is possible to observe that a greater distribution of customers who stopped using their credit card is in the **lowest revolving balance values**. A significant portion of these customers have a revolving balance **below \$500**.
+---
+- 2 - In the variable **total_trans_amt**, it is possible to observe that customers who stopped using their credit card have a greater distribution in the **lower transfer values**. Most of these customers made a total of **transfers below \$2750**.
+---
+- 3 - In the variable **total_ct_chng_q4_q1**, it is possible to observe that most customers who kept their credit card service active had an increase of at least **50%** in the number of transactions carried out in relation to Q4 and Q1.
+---
+- 4 - In the **avg_utilization_ratio** variable, it is possible to observe that most customers who stopped using their credit card have practically **not used their credit card limit** in the last few months.
+---
+- 5 - In the **contacts_count_12_mon** variable, it is possible to observe that most customers who stopped using their credit card have a **number of contacts greater than or equal to 3**.
+---
+- 6 - In the **total_trans_ct** variable, it is possible to observe that most customers who stopped using the credit card have a number **below 80 transactions in the last 12 months**. And all customers who have **95 transactions or more** continued to use the credit card.
+---
+- 7 - The value of the revolving balances of customers who stopped using their credit cards is relatively lower, around **45% less**, than that of customers who continued using their credit cards.
+---
+- 8 - The total transfer values ​​in recent months are lower for customers who stopped using their credit cards.
+---
+- 9 - Customers who continued using their credit cards have a reasonably higher number of services.
+---
+- 10 - Customers who stopped using their credit cards have a higher number of inactive months and a higher number of contacts in the last 12 months.
+---
+- 11 - Customers who stopped using their credit cards had about **34% fewer transactions** compared to customers who continued using their credit card service in the last 12 months.
 ---
 
 <br/><br/>
@@ -467,6 +522,27 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 </div>
 <br/>
 
+#### Observations and insights on categorical variables with the 'churn_target' variable
+---
+- 1 - The **level of education** does not demonstrate a very strong relationship with the rate of customers who stopped using credit card services. Considering that this variable is classified according to the levels of education, it was expected that the higher or lower the level of education, the more likely these customers would choose to continue using the credit card service.
+
+- However, it is possible to draw some observations regarding this data, as it directly affects the institution's possible decision-making.
+- The level of education with the highest churn rate is the **Doctorate**, with around **22.9%**. The lowest rates are the **Graduate** levels, with **15%**, and **High School**, with **15.1%** of churn rate.
+---
+- 2 - **Customers' annual income** does not have a significant influence on the rate of customers who stopped using their credit cards, as all salary ranges follow a practically similar distribution in relation to the churn rate index. Only customers with a salary range of **60k - 80k** had a churn rate of **13.3%**, which is slightly lower compared to the other salary ranges.
+---
+- 3 - The **credit card category** shows a significant relationship with the rate of customers who stopped using their credit cards. The **Gold** and **Platinum** categories had a higher-than-average rate of credit card service cancellations compared to the other categories. However, these two categories represent a very small percentage of this data set; together, they do not even have a **2%** share in relation to the other categories.
+---
+- 4 - The **Silver** category is the category with the lowest rate of credit card service cancellations **with a 14.1% churn rate**.
+---
+- 5 - Considering the data from this banking institution, it is possible to conclude that the rate of customers with the **Silver**, **Gold** and **Platinum** card brands is very low. We have **93%** of customers with the initial brand, which is the basic **Azul** card. It would be of great value for this institution to invest in a more flexible policy in its card categories. Offering more benefits to its customers and differentiated services through the **Silver**, **Gold** and **Platinum** brands can increase the loyalty rate of its customers.
+---
+- 6 - The **gender** of customers declared to have a specific relationship with the churn rate. Women reported having a higher rate of cancellation of the card service than men.
+---
+- 7 - The **relationship status** is graphically revealed to have a specific relationship with the churn rate indexes. **Married customers** have a **slightly lower** churn rate index than **single customers**.
+---
+- 8 - Initially considering the statistical data and graphs of these categorical variables, it is possible to conclude that they do not have a satisfactory relevance in solving the problem of this institution, which would be the turnover rate. However, we have some variables that somehow present some differences in their classes regarding the churn rate index, which directly affect these variables is the distorted distribution of these variables such as **marital_status and card_category**.
+
 ---
 
 ### Multivariate Analysis 
@@ -478,7 +554,21 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 </div>
 <br/>
 
+#### Observations and insights into the of numeric variables x  total_trans_ct with the 'churn_target' variable.
 ---
+- 1 - The variable **total_trans_ct** has a very strong correlation with the variable **churn_target**. Therefore, I chose to check its dispersion with the other variables, grouped by the target variable **churn_target**.
+
+The combinations that best defined a good separation between **Non_churners** and **Churners** customers were:
+
+- **total_trans_ct** x **total_trans_amt**
+- **total_trans_ct** x **total_ct_chng_q4_q1**
+- **total_trans_ct** x **total_ct_chng_q4_q1**
+
+These variables refer to the quantity or total value of transactions, reinforcing the previous observations that the number of transactions and their total value reflect, in a certain way, the possible behavior of the customer, indicating whether he or she will continue to use the credit card or stop using it.
+
+---
+- 2 - The variables **total_revolving_bal** and **avg_utilization_ratio**, together with the variable **total_trans_ct**, had a reasonable separation of the **Churn** and **Non-churn** classes, although there was a greater dispersion in the graphs of these two variables.
+
 
 ---
 # 4-Modeling

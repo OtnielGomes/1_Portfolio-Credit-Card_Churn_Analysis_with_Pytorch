@@ -703,12 +703,45 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 
 <br/><br/>
 <div align="left">
+    <img src="images/torch_crossvalidation_k1cm.png" alt="Torch Crossvalidation k1" width="250" height="250">
+    <img src="images/torch_crossvalidation_k1metrics.png" alt="Torch Crossvalidation k1" width="550" height="250">
+</div>
+
+<br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_k2cm.png" alt="Torch Crossvalidation k2" width="250" height="250">
+    <img src="images/torch_crossvalidation_k2metrics.png" alt="Torch Crossvalidation k2" width="550" height="250">
+</div>
+
+<br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_k3cm.png" alt="Torch Crossvalidation k3" width="250" height="250">
+    <img src="images/torch_crossvalidation_k3metrics.png" alt="Torch Crossvalidation k3" width="550" height="250">
+</div>
+
+<br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_k4cm.png" alt="Torch Crossvalidation k4" width="250" height="250">
+    <img src="images/torch_crossvalidation_k4metrics.png" alt="Torch Crossvalidation k4" width="550" height="250">
+</div>
+
+<br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_k5cm.png" alt="Torch Crossvalidation k5" width="250" height="250">
+    <img src="images/torch_crossvalidation_k5metrics.png" alt="Torch Crossvalidation k5" width="550" height="250">
+</div>
+
+<br/>
+<div align="left">
     <img src="images/torch_crossvalidation_k1cm.png" alt="ML Crossvalidation" width="250" height="250">
     <img src="images/torch_crossvalidation_k1metrics.png" alt="ML Crossvalidation" width="550" height="250">
 </div>
 
-
-
+<br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_k1cm.png" alt="ML Crossvalidation" width="250" height="250">
+    <img src="images/torch_crossvalidation_k1metrics.png" alt="ML Crossvalidation" width="550" height="250">
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

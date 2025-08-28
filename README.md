@@ -373,7 +373,7 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 
 <br/><br/>
 <div align="left">
-    <img src="images/histogram_numerical_uni.png" alt="Histogram Numerical" width="800" height="800">
+    <img src="images/histogram_numerical_uni.png" alt="Histogram Numerical" width="800" height="900">
   </a>
 </div>
 <br/>

@@ -571,8 +571,143 @@ These variables refer to the quantity or total value of transactions, reinforcin
 
 
 ---
-# 4-Modeling
 
+<br/>
+
+## 4. Modeling
+---  
+In this stage, **I will test classical machine learning models** to evaluate their performance on the training data. The approach will be **intentionally simple** (without complex hyperparameter tuning or advanced preprocessing techniques), as algorithms like **Random Forest, Logistic Regression, and SVM** typically perform better with straightforward data transformations.  
+
+---  
+
+After this initial analysis, **I will prioritize the project’s main model**: a **neural network developed in PyTorch**. This architecture was chosen due to its:  
+
+- **Ability to identify complex patterns** in non-linear data.  
+- **Flexibility to adapt to class imbalances** (e.g., the observed 84%-16% class distribution).  
+- **Generalization capability** (Highly efficient with unseen data).  
+
+However, neural networks require **specific preprocessing**, particularly to address:  
+1. **High-cardinality categorical variables** (e.g., unique identifiers).  
+2. **Asymmetric distributions** (identified during the EDA phase).  
+3. **Data noise** (such as outliers in numerical variables).  
+
+To address these, I will apply:  
+- **Embedding layers** for categorical variables.  
+- **Cross-validation** to verify and adjust data across different partitions.  
+- **Regularization techniques** (e.g., *dropout*) to prevent *overfitting*.  
+
+---  
+
+### Modeling Split into Two Phases 
+#### **Phase 1: Classical Machine Learning Models**  
+| **Objective** | **Tools** | **Metric** |  
+|---------------|------------|-------------|  
+| Establish a performance baseline for future comparison. | Scikit-learn (Decision Trees, SVM, Logistic Regression). | AUC-ROC. |  
+
+#### **Phase 2: PyTorch Neural Network**  
+| **Objective** | **Tools** | **Metric** |  
+|---------------|------------|-------------|  
+| Achieve better generalization on unseen data. | PyTorch, Torchmetrics, Ray Tune. | AUC-ROC, Recall. |  
+
+---  
+
+### Evaluation Metric Choice: AUC-ROC 
+#### Why AUC-ROC?  
+| **Criterion** | **Explanation** | **Business Impact** |  
+|---------------|------------------|----------------------|  
+| **Class imbalance** | Balances *recall* (capturing churning customers) and *specificity* (avoiding unnecessary actions on loyal customers). | Reduces operational costs by prioritizing high-risk customers. |  
+| **Asymmetric cost sensitivity** | False negatives (missing churn) are more critical than false positives. | Improves retention campaign efficacy (e.g., personalized offers). |  
+| **Universal interpretability** | Scores above **0.85** indicate strong predictive power for binary classification. | Simplifies communication with non-technical stakeholders. |  
+
+---
+
+### Training Classics Models - Cross-Validation
+
+#### Data Preprocessing for Traditional ML Models  
+
+Traditional ML algorithms benefit from features that share similar scales and distributions, ensuring stable convergence and fair weighting across predictors. For this, I adopted the following strategy:  
+
+#### 1. Numerical Variables  
+
+| **Technique**       | **Applied Variables**                                                                                                                                                                                                                             | **Justification**                                                                                     |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| **StandardScaler**  | All numeric features (`credit_limit`, `total_amt_chng_q4_q1`, `total_ct_chng_q4_q1`, `avg_utilization_ratio`, `customer_age`, `dependent_count`, `months_on_book`, `total_relationship_count`, `months_inactive_12_mon`, `contacts_count_12_mon`, `total_revolving_bal`, `total_trans_amt`, `total_trans_ct`) | Removes the mean and scales to unit variance, aligning feature ranges and mitigating outlier influence. |
+
+#### 2. Categorical Variables  
+
+| **Technique**      | **Applied Variables**                                                    | **Justification**                                                                                   |
+|--------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| **OrdinalEncoder** | Ordinal features (`education_level`, `income_category`, `card_category`)   | Preserves inherent ordering without inflating dimensionality.                                       |
+| **OneHotEncoder**  | Nominal features (`gender`, `marital_status`)                             | Encodes each category distinctly, avoiding implied ranking and maintaining model interpretability. |
+---
+
+#### Applying Cross Validation
+
+<br/><br/>
+<div align="center">
+    <img src="images/ml_crossvalidation.png" alt="ML Crossvalidation" width="1000" height="800">
+  </a>
+</div>
+<br/>
+
+---
+### Training Neural NetWorks Models With PyTorch - Cross Validation
+
+#### Data Preprocessing for Neural Network Models  
+
+Neural networks benefit from feature scaling and encoding strategies that normalize value ranges and preserve meaningful relationships between categories, contributing to stable and efficient training. Based on this, I adopted the following preprocessing strategy:  
+
+---
+
+#### 1. Numerical Variables  
+
+| **Technique**    | **Applied Variables**                                                                                                                                                                                        | **Justification**                                                                                                                |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **MinMaxScaler** | `months_on_book`, `customer_age`, `dependent_count`, `total_relationship_count`, `months_inactive_12_mon`, `contacts_count_12_mon`, `total_revolving_bal`, `avg_utilization_ratio`, `total_amt_chng_q4_q1`, `total_ct_chng_q4_q1`, `total_trans_ct` | Scales features to the [0, 1] range, preserving the original distribution shape and ensuring that all features contribute uniformly. |
+| **RobustScaler** | `credit_limit`, `total_trans_amt`                                                                                                                                                                             | Reduces the influence of outliers and large value ranges, improving robustness in the presence of extreme values.               |
+
+---
+
+#### 2. Categorical Variables  
+
+| **Technique**                  | **Applied Variables**                              | **Justification**                                                                                                                                                                |
+|--------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **OrdinalEncoder**             | `gender`, `marital_status`                         | Encodes nominal categories as integers for direct embedding or subsequent processing, without implying any intrinsic order.                                                     |
+| **Custom OrdinalEncoder + Embedding Layer** | `education_level`, `income_category`, `card_category` | Preserves the natural order between categories (e.g., `High School` → `College` → `Graduate School`) for ordinal features and maps them to dense vectors through embeddings, allowing the network to learn richer relationships. |
+
+---
+
+**Note on Embeddings in PyTorch**  
+
+Embedding layers are applied to **ordinal and nominal features** because they offer several key benefits:  
+
+
+- **Richer semantic representation**   
+
+  Transform categories into dense, continuous vectors that allow the network to capture both explicit and hidden relationships—hierarchies and inclusive similarities—that are impossible to express with fixed encodings like one-hot. 
+
+- **Dimensionality reduction for high-cardinality features**
+
+  Drastically reduce the size of the input space compared to one-hot encoding, which is particularly valuable for variables with many unique categories.  
+
+- **Learnable, task-specific mappings**   
+
+  Embedding vectors are optimized together with the rest of the network’s parameters, meaning that the representation adapts to the specific prediction task, improving accuracy and generalization.  
+
+- **Performance and scalability**   
+
+  Lower memory usage and computational load by avoiding sparse, high-dimensional matrices — enabling faster training and inference without sacrificing representational power.  
+
+---
+#### Applying Cross Validation
+
+<br/><br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_k1cm.png" alt="ML Crossvalidation" width="300" height="300">
+    <img src="images/torch_crossvalidation_k1metrics.png" alt="ML Crossvalidation" width="800" height="300">
+  </a>
+</div>
+<br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

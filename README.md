@@ -1006,7 +1006,28 @@ A predictive model with high AUC-ROC and recall not only reduces immediate losse
 
 <br/>
 
-# 6-Deployment
+## 6 - Deployment  
+
+In this step, I deploy the final churn prediction classifier, developed using the insights and statistical patterns identified during the Exploratory Data Analysis (EDA).  
+The model processes individual customer data and returns:  
+
+- **Churn probability** — the likelihood of the customer leaving.  
+- **Key influencing factors** — the main behavioral and financial indicators driving the prediction.  
+- **Actionable recommendations** — targeted suggestions to help reduce churn risk.  
+
+This deployment enables data-driven decision-making, allowing the business to proactively implement retention strategies, improve customer engagement, and maximize lifetime value.
+
+---
+
+<br/><br/>
+<div align="center">
+    <img src="images/deploy_churndemo.png" alt="Deploy Churn Demo" width="1000" height="800">
+</div>
+
+<br/><br/>
+<div align="center">
+    <img src="images/deploy_nonchurndemo.png" alt="Deploy Non-Churn Demo" width="1000" height="800">
+</div>
 
 
 

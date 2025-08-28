@@ -171,36 +171,6 @@ With it, you can:
 - AI-powered helper that explains, suggests, and fixes code
 - Works in notebooks and SQL editor
 
----
-
-### 🔧 What You Can Do in the Free Edition
-
-| Feature                       | Description                                                                |
-|--------------------------------|----------------------------------------------------------------------------|
-| Create notebooks               | For data analysis, visualizations, and machine learning                   |
-| Query data with SQL            | Explore datasets using the SQL editor                                     |
-| Build data pipelines           | Using LakeFlow, Auto Loader, and Delta Live Tables                        |
-| Train AI models                | With PySpark, MLflow, and foundation models                               |
-| Create interactive dashboards  | With natural language-based visualization (Genie)                         |
-| Collaborate in real time       | Share and edit notebooks with your team                                   |
-
----
-
-### ⚠️ Limitations
-
-- **Personal use only** (non-commercial)
-- Limited computing resources (no dedicated clusters)
-- Some advanced features unavailable (full Unity Catalog, scheduled jobs)
-
----
-
-### 📚 Learning Resources
-
-- [Databricks Academy](https://www.databricks.com/learn/free-edition) — free courses on:
-  - SQL Fundamentals
-  - Data Engineering with Delta Lake
-  - Machine Learning with PySpark
-- [Official Databricks Documentation](https://docs.databricks.com/)
 
 ### Installation of Libraries
 
@@ -225,6 +195,8 @@ This command is present in the first notebook of this project.
 <br/>
 
 ## The Project
+
+<br/>
 
 ### 1 - Business Understanding  
 ---
@@ -296,6 +268,8 @@ The bank’s manager has observed a rising number of customers abandoning credit
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<br/>
+
 ### 2 - Data Understanding
 
 ---
@@ -324,9 +298,12 @@ The bank’s manager has observed a rising number of customers abandoning credit
     <img src="images/type_variables.png" alt="Type Variables" width="700" height="500">
   </a>
 </div>
+
+---
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <br/>
-
-
 
 ### 3 - Data Preparation
 ---
@@ -569,8 +546,9 @@ These variables refer to the quantity or total value of transactions, reinforcin
 ---
 - 2 - The variables **total_revolving_bal** and **avg_utilization_ratio**, together with the variable **total_trans_ct**, had a reasonable separation of the **Churn** and **Non-churn** classes, although there was a greater dispersion in the graphs of these two variables.
 
-
 ---
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <br/>
 
@@ -643,7 +621,7 @@ Traditional ML algorithms benefit from features that share similar scales and di
 
 ### Applying Cross Validation
 
-<br/><br/>
+<br/>
 <div align="center">
     <img src="images/ml_crossvalidation.png" alt="ML Crossvalidation" width="1000" height="800">
   </a>
@@ -699,6 +677,7 @@ Embedding layers are applied to **ordinal and nominal features** because they of
   Lower memory usage and computational load by avoiding sparse, high-dimensional matrices — enabling faster training and inference without sacrificing representational power.  
 
 ---
+
 ### Applying Cross Validation
 
 <br/>
@@ -731,47 +710,32 @@ Embedding layers are applied to **ordinal and nominal features** because they of
     <img src="images/torch_crossvalidation_k5metrics.png" alt="Torch Crossvalidation k5" width="550" height="200">
 </div>
 
----
-
-
-                                                                           
+<br/>                                                                        
 
 ✅ Cross validation Metrics:
 
 ---
-🔴 Loss: 0.027
-
-☑️ Standard Deviation - Loss: 0.002934
+🔴 Loss: 0.027 - ☑️ Standard Deviation - Loss: 0.002934
 
 ---
 
-🟠 Accuracy: 96.17%
-
-☑️ Standard Deviation - Accuracy: 0.005298
+🟠 Accuracy: 96.17% - ☑️ Standard Deviation - Accuracy: 0.005298
 
 ---
 
-🔵 Precision: 84.58%
-
-☑️ Standard Deviation - Precision: 0.026960
+🔵 Precision: 84.58% - ☑️ Standard Deviation - Precision: 0.026960
 
 ---
 
-🔵 NPV: 98.69%
-
-☑️ Standard Deviation - NPV: 0.002221
+🔵 NPV: 98.69% - ☑️ Standard Deviation - NPV: 0.002221
 
 ---
 
-⚠️ Recall: 93.27%
-
-☑️ Standard Deviation - Recall: 0.012720
+⚠️ Recall: 93.27% - ☑️ Standard Deviation - Recall: 0.012720
 
 ---
 
-🎯 AUC-ROC: 99.10%
-
-☑️ Standard Deviation - AUC-ROC: 0.001672
+🎯 AUC-ROC: 99.10% - ☑️ Standard Deviation - AUC-ROC: 0.001672
 
 ---
 
@@ -779,7 +743,7 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 
 ### Scores of Models
 
-<br/> <br/>
+<br/> 
 <div align="left">
     <img src="images/models_performance.png" alt="Models Performance" width="800" height="500">
 </div>
@@ -787,6 +751,9 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <br/>
 
 ## 5 - Evaluation
@@ -1017,17 +984,17 @@ The model processes individual customer data and returns:
 
 This deployment enables data-driven decision-making, allowing the business to proactively implement retention strategies, improve customer engagement, and maximize lifetime value.
 
----
-
-<br/><br/>
+<br/>
 <div align="center">
     <img src="images/churndemo.png" alt="Deploy Churn Demo" width="1000" height="800">
 </div>
 
-<br/><br/>
+<br/>
 <div align="center">
     <img src="images/nonchurndemo.png" alt="Deploy Non-Churn Demo" width="1000" height="800">
 </div>
+
+---
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1044,9 +1011,9 @@ See the [open issues](https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Chu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+<br/>
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.

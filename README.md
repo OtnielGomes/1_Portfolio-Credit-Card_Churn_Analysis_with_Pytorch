@@ -369,6 +369,7 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 </div>
 <br/>
 
+- This dataset has imbalanced classes, which can be a factor to be considered when training machine learning models. Datasets with imbalanced classes make it more difficult to train and generalize model classifications, especially for **minority** classes. In general, models tend to learn more easily to predict the **majority class**, while they have more difficulty in detecting **minority classes**.
 ---
 
 <br/><br/>
@@ -378,6 +379,29 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 </div>
 <br/>
 
+#### Observations and insights regarding numerical data
+---
+- 1 - The **age of customers** is more widely distributed between the **40** and **50 age groups**, with **49** being the most frequent age group in these data.
+---
+- 2 - Most customers have between **2** and **3 dependents**, with a minority having 5 dependents.
+---
+- 3 - The length of the **customer's relationship** with the bank varies from **13** to **56 months**, with **36 months** being the most frequent.
+---
+- 4 - The **number of products** maintained by the customer is generally above **3 products**, with few customers maintaining only **1** or **2 products**.
+---
+- 5 - Most **customers remain inactive** for a maximum of **3 months**, with only a small fraction remaining inactive for **4** to **6 months**.
+---
+- 6 - The **number of contacts** in the last 12 months was, in most cases, **2** to **3 contacts**.
+---
+- 7 - The **number of transactions** is mostly distributed between **60** and **80 transactions**, with a very small portion of customers making less than **20** or more than **100 transactions**.
+---
+- 8 - Most customers have a **credit limit** of less than **5,000 dollars**, although there is a relatively significant portion of customers with a limit of **35,000 dollars**.
+---
+- 9 -Most customers have a **zero credit card revolving balance**, which is relatively positive, indicating that most customers are up to date with their bill payments.
+---
+- 10 - The **average open to buy**  is below **5,000 dollars**.
+---
+- 11 - Most credit **card limit utilization** is below **20%**, with a small portion of customers using more than **80%** of their credit card limit.
 ---
 
 <br/><br/>

@@ -1021,12 +1021,12 @@ This deployment enables data-driven decision-making, allowing the business to pr
 
 <br/><br/>
 <div align="center">
-    <img src="images/deploy_churndemo.png" alt="Deploy Churn Demo" width="1000" height="800">
+    <img src="images/churndemo.png" alt="Deploy Churn Demo" width="1000" height="800">
 </div>
 
 <br/><br/>
 <div align="center">
-    <img src="images/deploy_nonchurndemo.png" alt="Deploy Non-Churn Demo" width="1000" height="800">
+    <img src="images/nonchurndemo.png" alt="Deploy Non-Churn Demo" width="1000" height="800">
 </div>
 
 

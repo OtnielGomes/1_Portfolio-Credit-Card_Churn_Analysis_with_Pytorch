@@ -363,7 +363,7 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 ### Univariate Analysis 
 
 <br/><br/>
-<div align="left">
+<div align="center">
     <img src="images/churn_rate_uni.png" alt="Churn Rate train data" width="600" height="400">
   </a>
 </div>

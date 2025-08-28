@@ -641,7 +641,7 @@ Traditional ML algorithms benefit from features that share similar scales and di
 | **OneHotEncoder**  | Nominal features (`gender`, `marital_status`)                             | Encodes each category distinctly, avoiding implied ranking and maintaining model interpretability. |
 ---
 
-#### Applying Cross Validation
+### Applying Cross Validation
 
 <br/><br/>
 <div align="center">
@@ -699,9 +699,9 @@ Embedding layers are applied to **ordinal and nominal features** because they of
   Lower memory usage and computational load by avoiding sparse, high-dimensional matrices — enabling faster training and inference without sacrificing representational power.  
 
 ---
-#### Applying Cross Validation
+### Applying Cross Validation
 
-<br/><br/>
+<br/>
 <div align="left">
     <img src="images/torch_crossvalidation_k1cm.png" alt="Torch Crossvalidation k1" width="200" height="200">
     <img src="images/torch_crossvalidation_k1metrics.png" alt="Torch Crossvalidation k1" width="550" height="200">
@@ -730,6 +730,50 @@ Embedding layers are applied to **ordinal and nominal features** because they of
     <img src="images/torch_crossvalidation_k5cm.png" alt="Torch Crossvalidation k5" width="200" height="200">
     <img src="images/torch_crossvalidation_k5metrics.png" alt="Torch Crossvalidation k5" width="550" height="200">
 </div>
+
+---
+
+
+                                                                           
+
+✅### Cross validation Metrics ### :
+
+---
+🔴 Loss: 0.027
+
+☑️ Standard Deviation - Loss: 0.002934
+
+---
+
+🟠 Accuracy: 96.17%
+
+☑️ Standard Deviation - Accuracy: 0.005298
+
+---
+
+🔵 Precision: 84.58%
+
+☑️ Standard Deviation - Precision: 0.026960
+
+---
+
+🔵 NPV: 98.69%
+
+☑️ Standard Deviation - NPV: 0.002221
+
+---
+
+⚠️ Recall: 93.27%
+
+☑️ Standard Deviation - Recall: 0.012720
+
+---
+
+🎯 AUC-ROC: 99.10%
+
+☑️ Standard Deviation - AUC-ROC: 0.001672
+
+---
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

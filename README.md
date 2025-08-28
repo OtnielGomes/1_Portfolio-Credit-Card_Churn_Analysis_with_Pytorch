@@ -13,7 +13,7 @@
 
 <br/>
 <div align="center">
-    <img src="images/logo.jpg" alt="Logo" width="700" height="300">
+    <img src="images/logo.jpg" alt="Logo" width="650" height="400">
   
   <h3 align="center"> Churn Analysis/Prediction </h3>
 
@@ -320,7 +320,7 @@ The bank’s manager has observed a rising number of customers abandoning credit
 ---
 
 <br/>
-<div align="left">
+<div align="center">
     <img src="images/type_variables.png" alt="Type Variables" width="700" height="500">
   </a>
 </div>
@@ -382,11 +382,81 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 
 <br/><br/>
 <div align="left">
-    <img src="images/categorical_countplot_uni.png" alt="Categorical Countplot" width="800" height="700">
+    <img src="images/countplot_categorical_uni.png" alt="Countplot Categorical" width="800" height="700">
   </a>
 </div>
 <br/>
 
+---
+
+### Bivariate Analysis 
+
+<br/><br/>
+<div align="center">
+    <img src="images/correlation_heatmap_bi.png" alt="Correlation Heatmap" width="800" height="800">
+  </a>
+</div>
+<br/>
+
+---
+
+<br/><br/>
+<div align="center">
+    <img src="images/histogram_numerical_bi.png" alt="Histogram Numerical" width="800" height="900">
+  </a>
+</div>
+<br/>
+
+---
+
+<br/><br/>
+<div align="center">
+    <img src="images/boxplot_numerical_bi.png" alt="Boxplot Numerical" width="800" height="900">
+  </a>
+</div>
+<br/>
+
+---
+
+<br/><br/>
+<div align="center">
+    <img src="images/barplot_numerical_bi.png" alt="Barplot Numerical" width="800" height="900">
+  </a>
+</div>
+<br/>
+
+---
+
+<br/><br/>
+<div align="center">
+    <img src="images/countplot_categorical_bi.png" alt="Countplot Categorical" width="800" height="700">
+  </a>
+</div>
+<br/>
+
+---
+
+<br/><br/>
+<div align="center">
+    <img src="images/countplot_categoricalvscolumnclass_bi.png" alt="Countplot Categorical vs Column Class" width="800" height="700">
+  </a>
+</div>
+<br/>
+
+---
+
+### Multivariate Analysis 
+
+<br/><br/>
+<div align="center">
+    <img src="images/scaterplot_multi.png" alt="Scaterplot Multivars" width="800" height="800">
+  </a>
+</div>
+<br/>
+
+---
+
+---
 # 4-Modeling
 
 

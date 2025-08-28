@@ -702,11 +702,15 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 #### Applying Cross Validation
 
 <br/><br/>
-<div align="left">
+<div align="center">
     <img src="images/torch_crossvalidation_k1cm.png" alt="ML Crossvalidation" width="300" height="300">
+  </a>
+</div>
+<div align="center">
     <img src="images/torch_crossvalidation_k1metrics.png" alt="ML Crossvalidation" width="800" height="300">
   </a>
 </div>
+
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

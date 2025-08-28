@@ -736,7 +736,7 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 
                                                                            
 
-✅### Cross validation Metrics ### :
+✅ Cross validation Metrics:
 
 ---
 🔴 Loss: 0.027
@@ -775,15 +775,236 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 
 ---
 
+<br/>
+
+### Scores of Models
+
+<br/> <br/>
+<div align="left">
+    <img src="images/models_performance.png" alt="Models Performance" width="800" height="500">
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 5-Evaluation
+---
+<br/>
 
-### Considerations on initial training:
+## 5 - Evaluation
 
+At this stage, I analyze the comparative performance of **classical machine learning models** and the **PyTorch neural model**, focusing on both technical and business criteria.  
+The comparison considers the top 3 models based on their performance during **cross-validation**.
 
+---
+
+### What is the main goal of a churn prediction project?
+
+- **Customer retention**: prevent customer loss and extend their journey with the institution.
+- **Cost reduction**: optimize retention campaigns.
+- To achieve this, two indicators are essential: **CAC** and **LTV**.
+
+---
+
+### What are these indicators and how can they financially impact a banking institution?
+
+**Customer Acquisition Cost (CAC)** — varies according to business model, channel, and customer profile.
+
+**Average ranges observed in the market in recent years**:
+- **Digital banks/fintechs**: From **US\$ 200** to **US\$ 700** per customer (optimized digital channels and segmented campaigns).
+- **Traditional banks**: Above **US\$ 1,000** per customer (dependence on physical branches and mass media).
+- **Aggressive campaigns**: From **US\$ 1,500** to **US\$ 2,500+**, especially for high-income or corporate customers.
+
+**What makes up the CAC**:
+- Advertising (TV, radio, print, digital media)
+- Performance marketing (Google Ads, social media, affiliates)
+- Sales salaries and commissions
+- Events and sponsorships
+- Financial incentives (cashback, bonuses, fee waivers)
+- CRM and marketing automation tools/systems
+
+**Strategy and return**:
+- CAC is evaluated alongside **Lifetime Value (LTV)**.
+- Customers using multiple products (account, credit card, investments, insurance) justify higher CACs as returns are spread over several years.
+
+**Source of estimated values**:  
+[Forbes – What Are Banks’ And Fintechs’ Real Customer Acquisition Costs?](https://www.forbes.com/sites/ronshevlin/2025/03/23/what-are-banks-and-fintechs-real-customer-acquisition-costs/)
+
+---
+
+### Model Performance
+
+| **Model**               | **AUC-ROC** | **Std. Dev. (AUC-ROC)** | **Highlight** |
+|-------------------------|-------------|--------------------------|---------------|
+| Random Forest           | 98.26%      | ±0.001795                 | Good generalization and consistent AUC-ROC. |
+| Gradient Boosting       | 99.18%      | ±0.001530                 | Highest AUC-ROC. |
+| Neural Network (PyTorch)| 99.10%      | ±0.001672             | Excellent performance and good generalization. |
+
+---
+
+### Why prioritize the PyTorch model?
+
+1. **Robust generalization**:
+   - Lowest standard deviation, indicating superior consistency.
+   - Dropout (`p=0.2`) and L2 regularization to mitigate overfitting.
+
+2. **Adaptability to new data**:
+   - More efficient architecture for unseen data and atypical patterns.
+   - Ability to learn complex non-linear relationships.
+
+3. **Business costs**:
+   - **False negatives** cost 5 to 7 times more than false positives.  
+     estimate: **US\$ 2,500** per lost customer vs. **US\$ 500** per unnecessary offer 
+   - Architectural adjustments and loss functions (e.g., Focal Loss) prioritize **recall**.
+
+---
+
+### Hyperparameter Tuning
+
+- The network architecture and its parameters/hyperparameters are already well-defined, and the current metrics are satisfactory for the project’s objectives.  
+Therefore, the **hyperparameter tuning** process will be used to validate the parameters already tested and implemented, as well as to seek an **improvement in the AUC-ROC score**, focusing on **reducing variance** and **bias** across the models in the 5-fold cross-validation.
+
+- Given the complexity of neural networks, it is challenging to precisely determine the ideal number of neurons per layer.  
+Architectures with a progressive decrease in neurons — such as **256 → 128 → 64** — are often effective in many scenarios.  
+However, it is still important to explore new possibilities and test different configurations in this regard.
+
+- A more precise adjustment of the **learning rate** will also be performed, along with verification of the **L2 regularization (weight decay)**.  
+The goal is to assess whether a lower value (`1e-5`) remains more effective than a higher value (`5e-4`) in the current context.
+
+- Finally, the impact of **batch size** will be tested, with values of **128, 256, and 512**.  
+The choice of larger batch sizes is justified by the use of **Batch Normalization** in the network layers.  
+Using very small batches can negatively affect performance, since BatchNorm calculates the mean and variance of the input data in each mini-batch for normalization.  
+With very small batches, these statistics may become unstable, which can harm the network’s performance.
+
+---
+
+### Final Training
+
+- In this step, the parameters and hyperparameters obtained during the hypertuning process will be applied to a training and validation workflow, using **80%** of the data for training and **20%** reserved for validation.
+
+- After training, the model will be saved and applied to the **test data** to verify its **actual performance** and confirm that its bias and variance are consistent and within expectations in relation to the training data.
+
+<br/>
+<div align="left">
+    <img src="images/torch_crossvalidation_traincm.png" alt="Torch Crossvalidation train" width="200" height="200">
+    <img src="images/torch_crossvalidation_train_metrics.png" alt="Torch Crossvalidation train" width="550" height="200">
+</div>
+
+---
+## Final Testing
+
+### Analyzing model performance on test data
+
+<br/>
+<div align="center">
+    <img src="images/torch_crossvalidation_testcm.png" alt="Torch Test" width="400" height="400">
+</div>
+
+<br/><br/>
+<div align="left">
+    <img src="images/predictions_prob.png" alt="Predictions Prob" width="900" height="300">
+</div>
+
+<br/><br/>
+<div align="center">
+    <img src="images/precision_roc_curve.png" alt="Torch Crossvalidation k5" width="900" height="400">
+</div>
+
+---
+
+### Financial Results
+
+#### Final Metrics – Test Data
+
+After applying the trained model to the test dataset, the following performance metrics were obtained. These results confirm the model’s ability to generalize well and maintain consistency on unseen data:
+
+| **Metric**    | **Score** |
+|---------------|-----------|
+| **Loss**      | 0.027     |
+| **Accuracy**  | 96.6%     |
+| **Precision** | 85.7%     |
+| **NPV**       | 99.0%     |
+| **Recall**    | 94.8%     |
+| **AUC-ROC**   | 99.2%     |
+
+- The **low loss value** indicates strong convergence and minimal prediction error.  
+- The **high recall** confirms the model’s effectiveness in identifying churn cases, aligning with the strategic goal of minimizing customer loss. The model captures **94.8%** of churners, enabling retention actions before potential service discontinuation.  
+- The **NPV and precision** values demonstrate balanced performance across both classes.  
+- The **AUC-ROC of 99.2%** reinforces the model’s high discriminative power and reliability in probabilistic churn prediction.
+
+These metrics validate the robustness of the trained model and its suitability for deployment in retention strategies. The high AUC-ROC allows for more assertive campaigns targeting customers classified as churners. Considering the previously mentioned **Customer Acquisition Cost (CAC)** and **Lifetime Value (LTV)**, we can build a hypothetical scenario (as no official figures are available for this institution) to estimate the costs involved in retention and the potential loss of customers.
+
+---
+
+**Hypothetical Cost Scenario:**
+
+- **Cost to acquire a customer:** US\$ 2,500  
+- **Cost to retain a customer classified as a churner:** US$ 500  
+
+Based on the confusion matrix:  
+- **329 churners**  
+- **1,672 non-churners**  
+- The model classified **364 customers as churners**
+
+#### 1. Cost of false positives (non-churners classified as churners):
+
+- With a precision of **85.7%**, there were **52 false positives**.  
+- Cost: 52 × US\$ 500 = **US\$ 26,000**  
+- Total retention campaign cost: 364 × US\$ 500 = **US\$ 182,000**  
+- Proportion of resources incorrectly allocated:  
+  US\$ 26,000 / US\$ 182,000 = **14.28%**
+
+This is considered satisfactory, as only a small portion of resources would be spent on customers who would not have left the service. Nevertheless, such actions may still positively impact customer loyalty.
+
+#### 2. Preservation of customer acquisition investment (CAC):
+
+- Total investment to acquire the 329 churners: 329 × US\$ 2,500 = **US\$ 822,500**  
+- With a recall of **94.8%**, the model correctly identifies **312 churners**  
+- Preserved value: 312 × US\$ 2,500 = **US\$ 780,000**
+
+Therefore, the model has the potential to preserve up to **US\$ 780,000** in acquisition investment, provided that retention actions are effective.  
+The high AUC-ROC reinforces confidence in making more aggressive decisions with low risk of wasting resources on customers not at risk of churn.
+
+---
+
+#### 3. Lifetime Value (LTV) Assessment
+
+**Lifetime Value (LTV)** is a strategic metric that estimates the total value a customer generates for the institution over the course of their relationship.  
+It helps assess whether investments in **acquisition (CAC)** and **retention** are financially justified.
+
+The simplified formula for calculating LTV is:
+
+**LTV = Average Ticket × Purchase Frequency × Average Relationship Duration**
+
+For illustrative purposes, let’s consider the following estimated values based on credit card customers:
+
+- **Average monthly ticket:** US\$ 150 *(estimated value, as no official data is available)*  
+- **Purchase frequency:** monthly  
+- **Average relationship duration:** 3 years (36 months), based on the bank’s customer history  
+
+**Estimated LTV = 150 × 12 × 3 = US\$ 5,400**
+
+This value represents the average return the bank can expect from each customer over three years.  
+Comparing it to the **average CAC of US\$ 2,500**, we have an **LTV/CAC ratio of 2.16**, indicating a healthy and sustainable relationship — meaning the value generated per customer is more than double the acquisition cost.
+
+This analysis reinforces the importance of effective retention strategies:  
+- By preserving churners, the model not only avoids losing the acquisition investment but also **protects the customer’s future LTV**.
+
+#### Potential Revenue Preserved:
+
+- **Potential gross revenue** over a 3-year period for customers identified as churners and successfully retained:  
+  312 × US\$ 5,400 = **US\$ 1,684,800**
+
+- Additionally, with a recall of **94.8%**, the model has the potential to preserve up to **US\$ 780,000** in acquisition investment (CAC) and **US\$ 1.68 million** in future gross revenue (LTV), provided that retention actions are effective.
+
+---
+
+**Conclusion:**  
+A predictive model with high AUC-ROC and recall not only reduces immediate losses but also **maximizes the long-term value** of customers, directly contributing to the institution’s profitability and sustainability.
+
+---
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br/>
 
 # 6-Deployment
 

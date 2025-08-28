@@ -11,15 +11,15 @@
 
 <!-- PROJECT LOGO -->
 
-<br/><br />
+<br/>
 <div align="center">
-    <img src="images/logo.jpg" alt="Logo" width="700" height="500">
+    <img src="images/logo.jpg" alt="Logo" width="700" height="300">
   
   <h3 align="center"> Churn Analysis/Prediction </h3>
 
   <p align="center">
     <h4>Customer churn classification of a credit card service with Pytorch as the main classification model.</h4>
-    <br/><br/>
+    <br/>
     <a href="https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/tree/main/src"><strong>Explore the Docs and Functions »</strong></a>
     <br/><br/>
     <a href="https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/tree/main/notebooks">View Notebooks</a>
@@ -74,8 +74,6 @@
 ## About The Project
 
 <br/>
-
-
 
 ## Credit Card Churn Analysis - Prediction
 ---  
@@ -364,24 +362,27 @@ The goal is to explore and understand the patterns within the dataset, identifyi
 
 ### Univariate Analysis 
 
-<br/>
+<br/><br/>
 <div align="left">
-    <img src="images/churn_rate_uni.png" alt="Churn Rate train data" width="700" height="500">
+    <img src="images/churn_rate_uni.png" alt="Churn Rate train data" width="600" height="400">
   </a>
 </div>
 <br/>
 
+---
 
 <br/><br/>
 <div align="left">
-    <img src="images/histogram_numerical_uni.png" alt="Histogram Numerical" width="700" height="500">
+    <img src="images/histogram_numerical_uni.png" alt="Histogram Numerical" width="800" height="800">
   </a>
 </div>
 <br/>
 
+---
+
 <br/><br/>
 <div align="left">
-    <img src="images/categorical_countplot_uni.png" alt="Categorical Countplot" width="700" height="500">
+    <img src="images/categorical_countplot_uni.png" alt="Categorical Countplot" width="800" height="700">
   </a>
 </div>
 <br/>

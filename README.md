@@ -55,11 +55,11 @@
       <a href="#the-project">The Project</a></li>
       <ul>
         <li><a href="#1---business-understanding">1 - Business Understanding</a></li>
-        <li><a href="#2-data-understanding">2-Data Understanding</a></li>
-        <li><a href="#3-data-preparation">3-Data Preparation</a></li>
-        <li><a href="#4-modeling">4-Modeling</a></li>
-        <li><a href="#5-evaluation">5-Evaluation</a></li>
-        <li><a href="#6-deployment">6-Deployment</a></li>
+        <li><a href="#2---data-understanding">2 - Data Understanding</a></li>
+        <li><a href="#3---data-preparation">3 - Data Preparation</a></li>
+        <li><a href="#4---modeling">4 - Modeling</a></li>
+        <li><a href="#5---evaluation">5 - Evaluation</a></li>
+        <li><a href="#6---deployment">6 - Deployment</a></li>
       </ul>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -552,7 +552,7 @@ These variables refer to the quantity or total value of transactions, reinforcin
 
 <br/>
 
-## 4. Modeling
+### - 4 Modeling
 ---  
 In this stage, **I will test classical machine learning models** to evaluate their performance on the training data. The approach will be **intentionally simple** (without complex hyperparameter tuning or advanced preprocessing techniques), as algorithms like **Random Forest, Logistic Regression, and SVM** typically perform better with straightforward data transformations.  
 
@@ -754,7 +754,7 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 
 <br/>
 
-## 5 - Evaluation
+### 5 - Evaluation
 
 At this stage, I analyze the comparative performance of **classical machine learning models** and the **PyTorch neural model**, focusing on both technical and business criteria.  
 The comparison considers the top 3 models based on their performance during **cross-validation**.
@@ -971,7 +971,7 @@ A predictive model with high AUC-ROC and recall not only reduces immediate losse
 
 <br/>
 
-## 6 - Deployment  
+### 6 - Deployment  
 
 In this step, I deploy the final churn prediction classifier, developed using the insights and statistical patterns identified during the Exploratory Data Analysis (EDA).  
 The model processes individual customer data and returns:  

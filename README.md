@@ -48,13 +48,13 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#pre-requisites">Pre-requisites</a></li>
-        <li><a href="#installation-of-librarys">Installation of librarys</a></li>
+        <li><a href="#installation-of-libraries">Installation of libraries</a></li>
       </ul>
     </li>
     <li>
       <a href="#the-project">The Project</a></li>
       <ul>
-        <li><a href="#1-business-understanding">1-Business understanding</a></li>
+        <li><a href="###-1---business-understanding">1-Business Understanding</a></li>
         <li><a href="#2-data-understanding">2-Data Understanding</a></li>
         <li><a href="#3-data-preparation">3-Data Preparation</a></li>
         <li><a href="#4-modeling">4-Modeling</a></li>
@@ -751,8 +751,6 @@ Embedding layers are applied to **ordinal and nominal features** because they of
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <br/>
 

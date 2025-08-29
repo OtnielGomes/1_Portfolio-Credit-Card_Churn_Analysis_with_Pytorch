@@ -1054,20 +1054,20 @@ Distributed under the MIT License. See [`LICENSE.txt`](https://github.com/Otniel
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch.svg?style=for-the-badge
-[contributors-url]: https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch.svg?style=for-the-badge
+[contributors-url]: https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch.svg?style=for-the-badge
-[forks-url]: https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch/network/members
+[forks-shield]: https://img.shields.io/github/forks/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch.svg?style=for-the-badge
+[forks-url]: https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch.svg?style=for-the-badge
-[stars-url]: https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch/stargazers
+[stars-shield]: https://img.shields.io/github/stars/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch.svg?style=for-the-badge
+[stars-url]: https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch.svg?style=for-the-badge
-[issues-url]: https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch/issues
+[issues-shield]: https://img.shields.io/github/issues/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch.svg?style=for-the-badge
+[issues-url]: https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/issues
 
-[license-shield]: https://img.shields.io/github/license/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch.svg?style=for-the-badge
-[license-url]: https://github.com/OtnielGomes/0_Portfolio-Credit_Risk_Analysis_with_Pytorch/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch.svg?style=for-the-badge
+[license-url]: https://github.com/OtnielGomes/1_Portfolio-Credit-Card_Churn_Analysis_with_Pytorch/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/otnielgomes

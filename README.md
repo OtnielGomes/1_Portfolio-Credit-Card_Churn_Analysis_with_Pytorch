@@ -552,7 +552,7 @@ These variables refer to the quantity or total value of transactions, reinforcin
 
 <br/>
 
-### - 4 Modeling
+### 4 - Modeling
 ---  
 In this stage, **I will test classical machine learning models** to evaluate their performance on the training data. The approach will be **intentionally simple** (without complex hyperparameter tuning or advanced preprocessing techniques), as algorithms like **Random Forest, Logistic Regression, and SVM** typically perform better with straightforward data transformations.  
 

@@ -54,7 +54,7 @@
     <li>
       <a href="#the-project">The Project</a></li>
       <ul>
-        <li><a href="###-1">1 - Business Understanding</a></li>
+        <li><a href="#-1">1 - Business Understanding</a></li>
         <li><a href="#2-data-understanding">2-Data Understanding</a></li>
         <li><a href="#3-data-preparation">3-Data Preparation</a></li>
         <li><a href="#4-modeling">4-Modeling</a></li>
